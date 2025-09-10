@@ -20,21 +20,18 @@
         </nav>
          <button id="toggle-contrast">Tryb wysokiego kontrastu</button>
     </header>
-
-    <main>
-        
-    </main>
-
     <footer>
         <p>&copy; 2025 INF03</p>
     </footer>
     
-<script>
-    const toggleButton = document.getElementById('toggle-contrast');
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('high-contrast');
-    });
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById('toggle-contrast');
+            toggleButton.addEventListener('click', function () {
+                document.body.classList.toggle('high-contrast');
+            });
+        });
+    </script>
 </body>
 </html>
 
