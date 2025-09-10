@@ -1,14 +1,81 @@
-<!DOCTYPE HTML>
-<HTML lang="pl">
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<meta charset="utf-8">
-<style>
-    body{
-        background-color: fuchsia;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazyn - Panel Główny</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p>dień dorby!</p>
+
+    <header>
+        <h1>Magazyn Centralny</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Strona główna</a></li>
+                <li><a href="#">Dodaj produkt</a></li>
+                <li><a href="#">Lista produktów</a></li>
+                <li><a href="#">Raporty</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h2>Podsumowanie</h2>
+            <div class="summary-boxes">
+                <div class="box">
+                    <h3>Produkty ogółem</h3>
+                    <p>1250</p>
+                </div>
+                <div class="box">
+                    <h3>Braki magazynowe</h3>
+                    <p>12</p>
+                </div>
+                <div class="box">
+                    <h3>Ostatnia dostawa</h3>
+                    <p>10.09.2025</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>Lista produktów</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nazwa</th>
+                        <th>Kategoria</th>
+                        <th>Ilość</th>
+                        <th>Data dodania</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Młotek</td>
+                        <td>Narzędzia</td>
+                        <td>35</td>
+                        <td>05.09.2025</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Wkrętarka</td>
+                        <td>Elektronarzędzia</td>
+                        <td>8</td>
+                        <td>06.09.2025</td>
+                    </tr>
+                    <!-- Dodaj więcej wierszy -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Magazyn Centralny</p>
+    </footer>
+
 </body>
 </html>
+
