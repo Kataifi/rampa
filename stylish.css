@@ -1,6 +1,9 @@
+a{
+  text-decoration:none;
+}
 body{
   background-color:#f0baf5;
 }
 #powrot{
-  right-bottom:200px;
+  border:4px solid black;
 }
