@@ -2,15 +2,15 @@
 <HTML lang="pl">
   <head>
     <meta charset="utf-8">
-    <title>Strona z przyciskami</title>
+    <title>Strona z przyciskami i opcjami</title>
     <style>
-      /* Global styles */
+      /* Globalne style */
       body {
         font-family: Arial, sans-serif;
         background-color: #fce4ec; /* Jasnoróżowe tło */
         margin: 0;
         padding: 0;
-        color: #4a148c; /* Ciemnoróżowy tekst */
+        color: #4a148c; /* Ciemnoróżowy kolor tekstu */
       }
 
       .container {
@@ -18,60 +18,87 @@
         max-width: 800px;
         margin: 50px auto;
         padding: 20px;
-        background-color: #ffffff; /* Białe tło kontenera */
+        background-color: #ffffff; /* Białe tło dla kontenera */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
 
-      /* Nagłówki */
-      h1 {
-        font-size: 2em;
-        color: #880e4f; /* Ciemniejszy różowy kolor dla nagłówka */
+      /* Stylowanie nagłówków */
+      h2 {
+        font-size: 1.8em;
+        color: #880e4f; /* Ciemniejszy różowy dla nagłówków */
         margin-bottom: 20px;
       }
 
-      /* Stylowanie przycisków */
+      /* Stylowanie przycisków i linków */
+      a {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 10px;
+        font-size: 1.1em;
+        color: white;
+        background-color: #e91e63; /* Jasnoróżowy kolor przycisków */
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #c2185b; /* Ciemniejszy różowy na hover */
+      }
+
+      /* Flexbox dla przycisków "Powrót" i "Next" */
       .buttons {
         display: flex;
         justify-content: center;
         gap: 20px; /* Odstęp między przyciskami */
       }
 
-      button {
-        padding: 12px 20px;
-        font-size: 1.1em;
-        color: white;
-        background-color: #e91e63; /* Jasnoróżowy kolor przycisków */
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      /* Stylowanie listy */
+      ol {
+        text-align: left;
+        padding-left: 40px;
       }
 
-      button:hover {
-        background-color: #c2185b; /* Ciemniejszy różowy na hover */
+      li {
+        margin: 10px 0;
       }
 
-      /* Dodatkowy styl dla linków w razie potrzeby */
-      a {
+      /* Stylowanie dla okien dialogowych */
+      .dialog-link {
+        margin-top: 20px;
+        font-size: 1.2em;
         color: #e91e63;
-        text-decoration: none;
       }
 
-      a:hover {
+      .dialog-link:hover {
         text-decoration: underline;
-        color: #c2185b;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Witaj na stronie!</h1>
-      <p>Wybierz jedną z opcji poniżej:</p>
+      <!-- Przyciski Powrót i Next obok siebie -->
       <div class="buttons">
-        <a href="index.html"><button>Powrót</button></a>
-        <a href="HTML.html"><button>Next</button></a>
+        <a href="index.html">Powrót</a>
+        <a href="HTML.html">Next</a>
+      </div>
+
+      <!-- Lista z opcjami -->
+      <ol>
+        <li><a href="consolelog.html">Console.log</a></li>
+        <li><a href="documentWrite.html">Document.write</a></li>
+        <li><a href="windowAlert.html">Window.alert</a></li>
+        <li><a href="innerhtml.html">InnerHTML</a></li>
+      </ol>
+
+      <h2>OKNA DIALOGOWE</h2>
+
+      <!-- Linki do okien dialogowych -->
+      <div class="dialog-link">
+        <a href="confirm.html">Confirm</a><br>
+        <a href="prompt.html">Prompt</a>
       </div>
     </div>
   </body>
