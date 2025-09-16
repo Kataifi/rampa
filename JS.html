@@ -2,19 +2,101 @@
 <HTML lang="pl">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="stylish.css">
   </head>
+  <style>
+    /* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fce4ec; /* Light pink background */
+  margin: 0;
+  padding: 0;
+  color: #4a148c; /* Dark purple text */
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff; /* White background for the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for links */
+a {
+  color: #d81b60; /* Pinkish color for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #c2185b; /* Darker pink on hover */
+}
+
+/* Style for headings */
+h2 {
+  font-size: 1.8em;
+  color: #880e4f; /* Dark pink color for headings */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+/* Specific styles for the "Powrót" and "Next" links */
+.powrot {
+  display: inline-block;
+  padding: 10px;
+  background-color: #e91e63;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.powrot:hover {
+  background-color: #c2185b;
+}
+
+.dialog-link {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 16px;
+  background-color: #f48fb1; /* Light pink for dialog links */
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.dialog-link:hover {
+  background-color: #f06292; /* Slightly darker pink on hover */
+}
+
+  </style>
   <body>
-   <a href="index.html" class="powrot">Powrót</a><br>
-    <a href="HTML.html" class="powrot">next</a><br>
-    <ol>
-    <li><a href="consolelog.html">Console.log</a><br></li>
-    <li><a href="documentWrite.html">Document.write</a><br></li>
-   <li><a href="windowAlert.html">Window.alert</a><br></li>
-   <li><a href="innerhtml.html">InnerHTML</a><br></li>
+    <div class="container">
+      <a href="index.html" class="powrot">Powrót</a><br>
+      <a href="HTML.html" class="powrot">Next</a><br>
+
+      <h2>Opcje JavaScript</h2>
+      <ol>
+        <li><a href="consolelog.html">Console.log</a></li>
+        <li><a href="documentWrite.html">Document.write</a></li>
+        <li><a href="windowAlert.html">Window.alert</a></li>
+        <li><a href="innerhtml.html">InnerHTML</a></li>
       </ol>
-   <h2> OKNA DIALOGOWE</h2><br>
-    <a href="confirm.html">confirm</a><br>
-    <a href="prompt.html">prompt</a><br>
+
+      <h2>Okna dialogowe</h2>
+      <a href="confirm.html" class="dialog-link">Confirm</a><br>
+      <a href="prompt.html" class="dialog-link">Prompt</a><br>
+    </div>
   </body>
 </HTML>
+
