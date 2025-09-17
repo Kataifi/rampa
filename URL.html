@@ -13,7 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     .container {
@@ -38,7 +38,7 @@
       margin: 15px 0;
     }
 
-    a {
+    a.link-button {
       display: inline-block;
       padding: 12px 25px;
       background-color: #f06292;
@@ -49,15 +49,17 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    a:hover {
+    a.link-button:hover {
       background-color: #ec407a;
       transform: scale(1.05);
     }
 
-    a:active {
+    a.link-button:active {
       transform: scale(0.98);
     }
-      .fixed-back {
+
+    /* --- FIXED PRZYCISK W LEWYM DOLNYM ROGU --- */
+    .fixed-back {
       position: fixed;
       bottom: 20px;
       left: 20px;
@@ -79,14 +81,16 @@
   </style>
 </head>
 <body>
-<li><a href="index.html">Powrót</a></li>
+
   <div class="container">
     <h1>💖 Przydatne linki do JavaScript 💖</h1>
     <ul>
-      <li><a href="https://poradnik-js.kodilla.com/" target="_blank">Poradnik JavaScript (Kodilla)</a></li>
+      <li><a class="link-button" href="https://poradnik-js.kodilla.com/" target="_blank">Poradnik JavaScript (Kodilla)</a></li>
     </ul>
   </div>
 
+  <!-- Przycisk powrotu FIXED -->
+  <a class="fixed-back" href="index.html">← Powrót</a>
+
 </body>
 </html>
-
