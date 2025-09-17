@@ -1,29 +1,136 @@
-<!DOCTYPE HTML>
-<HTML lang="pl">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <h1>Operatory arytmetyczne</h1>
-    <div id="1"></div>
-    <script>
-    let a = 3;
-let b = 15;
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operacje Arytmetyczne w JavaScript</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce4ec; /* Jasny różowy */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+    }
 
-document.getElementById("1").innerHTML = `("Dodawanie:", a + b)  <br>`;
+    h1 {
+      color: #d81b60; /* Głęboki różowy */
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
 
-document.write("Odejmowanie:", a - b)  +"<br>"; 
+    table, th, td {
+      border: 1px solid #f48fb1; /* Różowa ramka */
+    }
 
+    th {
+      background-color: #f06292; /* Różowe tło */
+      color: white;
+      padding: 12px;
+      border-radius: 6px 6px 0 0;
+    }
 
-document.write("Mnożenie:", a * b)  "<br>"; 
+    td {
+      padding: 10px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d81b60;
+    }
 
+    .operation {
+      font-weight: bold;
+    }
 
-document.write("Dzielenie:", a / b)  "<br>";  
+    .result {
+      color: #f06292;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-document.write("Reszta z dzielenia:", a % b) "<br>";  
+    /* Delikatny efekt hover na wierszach tabeli */
+    tr:hover {
+      background-color: #f8bbd0;
+    }
+  </style>
+</head>
+<body>
 
-    </script>
-  </body>
-</HTML>
+  <div class="container">
+    <h1>Operacje Arytmetyczne w JavaScript</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Operacja</th>
+          <th>Wynik</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="operation">Dodawanie: 5 + 3</td>
+          <td class="result" id="addition"></td>
+        </tr>
+        <tr>
+          <td class="operation">Odejmowanie: 5 - 3</td>
+          <td class="result" id="subtraction"></td>
+        </tr>
+        <tr>
+          <td class="operation">Mnożenie: 5 * 3</td>
+          <td class="result" id="multiplication"></td>
+        </tr>
+        <tr>
+          <td class="operation">Dzielenie: 5 / 2</td>
+          <td class="result" id="division"></td>
+        </tr>
+        <tr>
+          <td class="operation">Dzielenie całkowite: Math.floor(5 / 2)</td>
+          <td class="result" id="floorDivision"></td>
+        </tr>
+        <tr>
+          <td class="operation">Reszta z dzielenia: 5 % 2</td>
+          <td class="result" id="modulus"></td>
+        </tr>
+        <tr>
+          <td class="operation">Potęgowanie: 5 ** 3</td>
+          <td class="result" id="exponentiation"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Definiowanie zmiennych
+    let a = 5;
+    let b = 3;
+    let c = 2;
+
+    // Operacje
+    document.getElementById('addition').innerText = a + b;  // 8
+    document.getElementById('subtraction').innerText = a - b;  // 2
+    document.getElementById('multiplication').innerText = a * b;  // 15
+    document.getElementById('division').innerText = a / c;  // 2.5
+    document.getElementById('modulus').innerText = a % c;  // 1
+    
+  </script>
+
+</body>
+</html>
+
