@@ -1,18 +1,124 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Instrukcje JS - Różowa Strona ZŁOMKA</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            color: #800040;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #cc007a;
+        }
+
+        pre {
+            background-color: #ffd6eb;
+            padding: 15px;
+            border: 2px dashed #ff66b3;
+            border-radius: 10px;
+            white-space: pre-wrap;
+        }
+
+        button {
+            background-color: #ff66b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #e60073;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 Instrukcje Warunkowe i Pętle w JavaScript (ZŁOMEK style)</h1>
+
+    <h2>if...else</h2>
+    <pre id="if-else"></pre>
+
+    <h2>switch</h2>
+    <pre id="switch"></pre>
+
+    <h2>for</h2>
+    <pre id="for"></pre>
+
+    <h2>while</h2>
+    <pre id="while"></pre>
+
+    <h2>do...while</h2>
+    <pre id="do-while"></pre>
+
+    <button onclick="pokazKod()">Pokaż Kod w Konsoli 🔍</button>
+
     <script>
-      let liczba = 10;
+        function pokazKod() {
+            // if...else
+            let liczba = 10;
+            let wynikIfElse = '';
+            if (liczba > 5) {
+                wynikIfElse = "Liczba jest większa niż 5";
+            } else {
+                wynikIfElse = "Liczba jest mniejsza lub równa 5";
+            }
+            document.getElementById("if-else").textContent = wynikIfElse;
 
-if (liczba > 5) {
-    console.log("Liczba jest większa niż 5");
-} else {
-    console.log("Liczba jest mniejsza lub równa 5");
-}
+            // switch
+            let dzien = "wtorek";
+            let wynikSwitch = '';
+            switch (dzien) {
+                case "poniedziałek":
+                    wynikSwitch = "Dziś jest poniedziałek";
+                    break;
+                case "wtorek":
+                    wynikSwitch = "Dziś jest wtorek";
+                    break;
+                case "środa":
+                    wynikSwitch = "Dziś jest środa";
+                    break;
+                default:
+                    wynikSwitch = "Inny dzień tygodnia";
+                    break;
+            }
+            document.getElementById("switch").textContent = wynikSwitch;
 
+            // for
+            let wynikFor = '';
+            for (let i = 1; i <= 5; i++) {
+                wynikFor += "Iteracja nr " + i + "\n";
+            }
+            document.getElementById("for").textContent = wynikFor;
+
+            // while
+            let wynikWhile = '';
+            let i = 1;
+            while (i <= 5) {
+                wynikWhile += "Iteracja while nr " + i + "\n";
+                i++;
+            }
+            document.getElementById("while").textContent = wynikWhile;
+
+            // do...while
+            let wynikDoWhile = '';
+            let j = 1;
+            do {
+                wynikDoWhile += "Iteracja do...while nr " + j + "\n";
+                j++;
+            } while (j <= 5);
+            document.getElementById("do-while").textContent = wynikDoWhile;
+
+            console.log(" Kod wykonany. Zajrzyj na stronę i konsolę ");
+        }
     </script>
-  </body>
+
+</body>
 </html>
