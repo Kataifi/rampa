@@ -71,6 +71,28 @@
                 wynikIfElse = "Liczba jest mniejsza lub równa 5";
             }
             document.getElementById("if-else").textContent = wynikIfElse;
+            
+            function pokazKod() {
+            // if...else
+            let liczba = 10;
+            let wynikIfElse = '';
+            if (liczba > 5) {
+                wynikIfElse = "Liczba jest większa niż 5";
+            } : {
+                wynikIfElse = "Liczba jest mniejsza lub równa 5";
+            }
+            document.getElementById("if-else").textContent = wynikIfElse;
+
+                 function pokazKod() {
+            // if...else
+            let liczba = 10;
+            let wynikIfElse = '';
+            ? (liczba > 5) {
+                wynikIfElse = "Liczba jest większa niż 5";
+            } else {
+                wynikIfElse = "Liczba jest mniejsza lub równa 5";
+            }
+            document.getElementById("if-else").textContent = wynikIfElse;
 
             // switch
             let dzien = "wtorek";
@@ -94,7 +116,7 @@
             // for
             let wynikFor = '';
             for (let i = 1; i <= 5; i++) {
-                wynikFor += "Iteracja nr " + i + "\n";
+                wynikFor += " nr " + i + "\n";
             }
             document.getElementById("for").textContent = wynikFor;
 
@@ -102,7 +124,7 @@
             let wynikWhile = '';
             let i = 1;
             while (i <= 5) {
-                wynikWhile += "Iteracja while nr " + i + "\n";
+                wynikWhile += " while nr " + i + "\n";
                 i++;
             }
             document.getElementById("while").textContent = wynikWhile;
@@ -111,7 +133,7 @@
             let wynikDoWhile = '';
             let j = 1;
             do {
-                wynikDoWhile += "Iteracja do...while nr " + j + "\n";
+                wynikDoWhile += " do...while nr " + j + "\n";
                 j++;
             } while (j <= 5);
             document.getElementById("do-while").textContent = wynikDoWhile;
