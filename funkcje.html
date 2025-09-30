@@ -1,28 +1,50 @@
-<!DOCTYPE HTML>
-<HTML lang="pl">
+<!DOCTYPE HTML> 
+<html lang="pl">
   <head>
     <meta charset="utf-8">
+    <title>Różowy Motyw</title>
+    <style>
+      body {
+        background-color: #ffe6f0; /* Jasnoróżowe tło */
+        color: #99004d; /* Głęboki róż do tekstu */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 30px;
+      }
+
+      p {
+        background-color: #ffb3d9; /* jaśniejszy róż dla pola tekstowego */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ff66b3;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    </style>
   </head>
   <body>
     <p id="demo"></p>
 
-<script>
-document.getElementById("demo").innerHTML =
-parseInt("10") + "<br>" +
-parseInt("10.00") + "<br>" +
-parseInt("10.33") + "<br>" +
-parseInt("34 45 66") + "<br>" +
-parseInt("   60   ") + "<br>" +
-parseInt("40 years") + "<br>" +
-parseInt("He was 40");
-</script>
-<script>
-//      document.getElementById("demo").innerHTML =
-//parseFloat(10) + "<br>" +
-//parseFloat("10") + "<br>" +
-//parseFloat("10.33") + "<br>" +
-//parseFloat("34 45 66") + "<br>" +
-//parseFloat("He was 40");
-</script>
+    <script>
+      document.getElementById("demo").innerHTML =
+        parseInt("10") + "<br>" +
+        parseInt("10.00") + "<br>" +
+        parseInt("10.33") + "<br>" +
+        parseInt("34 45 66") + "<br>" +
+        parseInt("   60   ") + "<br>" +
+        parseInt("40 years") + "<br>" +
+        parseInt("He was 40");
+    </script>
+
+    <!-- Można odkomentować jeśli chcesz pokazać też parseFloat -->
+    <!--
+    <script>
+      document.getElementById("demo").innerHTML += "<br><br>" +
+        parseFloat(10) + "<br>" +
+        parseFloat("10") + "<br>" +
+        parseFloat("10.33") + "<br>" +
+        parseFloat("34 45 66") + "<br>" +
+        parseFloat("He was 40");
+    </script>
+    -->
   </body>
-</HTML>
+</html>
