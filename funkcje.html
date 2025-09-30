@@ -22,29 +22,34 @@
     </style>
   </head>
   <body>
-    <p id="demo"></p>
-<button onclick="parseInt">ParseInt</button>
+ <button onclick="pokazWyniki()">Pokaż wyniki parseInt</button>
+    <p id="demo">Kliknij przycisk powyżej, aby zobaczyć wyniki.</p>
+
     <script>
-      
-      document.getElementById("demo").innerHTML =
-        parseInt("10") + "<br>" +
-        parseInt("10.00") + "<br>" +
-        parseInt("10.33") + "<br>" +
-        parseInt("34 45 66") + "<br>" +
-        parseInt("   60   ") + "<br>" +
-        parseInt("40 years") + "<br>" +
-        parseInt("He was 40");
+      function pokazWyniki() {
+        document.getElementById("demo").innerHTML =
+          parseInt("10") + "<br>" +
+          parseInt("10.00") + "<br>" +
+          parseInt("10.33") + "<br>" +
+          parseInt("34 45 66") + "<br>" +
+          parseInt("   60   ") + "<br>" +
+          parseInt("40 years") + "<br>" +
+          parseInt("He was 40");
+      }
     </script>
 
-     Można odkomentować jeśli chcesz pokazać też parseFloat 
-    <button onclick="parseFloat">ParseFloat</button>
+    
+    <button onclick="pokazWynik()">ParseFloat</button>
+    <p id="demo">Kliknij przycisk powyżej, aby zobaczyć wyniki.</p>
     <script>
+      function pokazWynik() {
       document.getElementById("demo").innerHTML += "<br><br>" +
         parseFloat(10) + "<br>" +
         parseFloat("10") + "<br>" +
         parseFloat("10.33") + "<br>" +
         parseFloat("34 45 66") + "<br>" +
         parseFloat("He was 40");
+      }
     </script>
    
   </body>
