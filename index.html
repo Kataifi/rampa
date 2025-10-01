@@ -7,7 +7,100 @@
     <link rel="stylesheet" href="styl.css">
 </head>
 <body>
+<style>
+    /* Ogólny styl - różowy motyw */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f0; /* jasnoróżowe tło */
+    color: #880044; /* ciemnoróżowy tekst */
+}
 
+header {
+    background-color: #ffb6c1; /* pastelowy róż */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #ff69b4; /* mocniejszy róż */
+}
+
+header h1 {
+    margin: 0;
+    color: #880044;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #880044;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ffc0cb; /* jasny róż na hover */
+    color: #550022;
+}
+
+button#toggle-contrast {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#toggle-contrast:hover {
+    background-color: #ff1493;
+}
+
+/* Stopka */
+footer {
+    background-color: #ffb6c1;
+    text-align: center;
+    padding: 10px;
+    color: #880044;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 3px solid #ff69b4;
+}
+
+/* Tryb wysokiego kontrastu */
+.high-contrast {
+    background-color: black !important;
+    color: yellow !important;
+}
+
+.high-contrast a {
+    color: yellow !important;
+}
+
+.high-contrast header,
+.high-contrast footer {
+    background-color: black !important;
+    border-color: yellow !important;
+}
+
+.high-contrast button#toggle-contrast {
+    background-color: yellow !important;
+    color: black !important;
+}
+
+</style>
     <header>
         <h1>Egzamin INF03</h1>
         <nav>
