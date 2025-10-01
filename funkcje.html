@@ -35,6 +35,25 @@
       button:hover {
         background-color: #e60073;
       }
+      .fixed-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #f06292;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+      z-index: 1000;
+    }
+
+    .fixed-back:hover {
+      background-color: #ec407a;
+      transform: scale(1.05);
+    }
     </style>
   </head>
   <body>
@@ -87,5 +106,6 @@
 console.log(dodaj(5, 3)); // Wynik: 8
 
     </script>
+    <a href="index.html">Powrót</a>
   </body>
 </html>
