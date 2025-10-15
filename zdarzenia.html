@@ -31,7 +31,7 @@ function myFunction() {
 <button onclick="myFunction()">Click me</button>
 
 <p id="demo"></p>
-
+<hr>
 <script>
 function myFunction() {
   document.getElementById("demo").innerHTML = "Hello World";
@@ -41,7 +41,7 @@ function myFunction() {
 <p ondblclick="myFunction()">Double-click this paragraph to trigger a function.</p>
 
 <p id="demo"></p>
-
+<hr>
 <script>
 function myFunction() {
   document.getElementById("demo").innerHTML += "Hello World ";
@@ -52,7 +52,7 @@ function myFunction() {
 <input type="text" onkeydown="myFunction()">
 
 <p id="demo"></p>
-
+<hr>
 <script>
 function myFunction() {
   document.getElementById("demo").innerHTML = "You pressed a key inside the input field";
@@ -61,7 +61,7 @@ function myFunction() {
   <p>Try to resize the browser window to display the windows height and width.</p>
 
 <p id="demo"></p>
-
+<hr>
 <script>
 function myFunction() {
   let w = window.outerWidth;
@@ -75,7 +75,7 @@ function myFunction() {
 The mouseDown() function sets the color of this text to red.
 The mouseUp() function sets the color of this text to blue.
 </p>
-
+<hr>
 <script>
 function mouseDown() {
   document.getElementById("myP").style.color = "red";
@@ -89,7 +89,7 @@ function mouseUp() {
 
 <p>The function bigImg() is triggered when the user moves the mouse pointer over the image.</p>
 <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
-
+<hr>
 <script>
 function bigImg(x) {
   x.style.height = "64px";
@@ -102,7 +102,7 @@ function normalImg(x) {
 }
 </script>
   Select some of the text: <input type="text" value="Hello world!" onselect="myFunction()">
-
+<hr>
 <script>
 function myFunction() {
   alert("You selected some text!");
@@ -110,7 +110,7 @@ function myFunction() {
 </script>
   <p>Close this window or press F5 to reload the page.</p>
 <p><strong>Note:</strong> Due to different browser settings, this event may not always work as expected.</p>
-
+<hr>
 <script>
 function myFunction() {
   alert("Thank you for visiting my page!");
@@ -119,7 +119,7 @@ function myFunction() {
   Enter your name: <input type="text" id="fname" onblur="myFunction()">
 
 <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
-
+<hr>
 <script>
 function myFunction() {
   let x = document.getElementById("fname");
@@ -129,7 +129,7 @@ function myFunction() {
   <p>A function is triggered when the user is pressing a key in the input field.</p>
 
 <input type="text" onkeypress="myFunction()">
-
+<hr>
 <script>
 function myFunction() {
   alert("You pressed a key inside the input field");
@@ -139,7 +139,7 @@ function myFunction() {
 <p>The function transforms the input field to upper case:</p>
 
 Enter your name: <input type="text" id="fname" onkeyup="myFunction()">
-
+<hr>
 <script>
 function myFunction() {
   let x = document.getElementById("fname");
@@ -151,6 +151,7 @@ function myFunction() {
 <p>The function bigImg() is triggered when the user moves the mouse pointer over the image.</p>
 <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
 
+<hr>
 <script>
 function bigImg(x) {
   x.style.height = "64px";
@@ -170,7 +171,7 @@ function normalImg(x) {
 MouseEvent object.</p>
 
 <p id="demo"></p>
-
+<hr>
 <script>
 function myFunction(e) {
   let x = e.clientX;
@@ -187,7 +188,7 @@ function clearCoor() {
   Enter name: <input type="text" name="fname">
   <input type="submit" value="Submit">
 </form>
-
+<hr>
 <script>
 function myFunction() {
   alert("The form was submitted");
