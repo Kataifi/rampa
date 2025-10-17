@@ -20,132 +20,327 @@
   <a href=".html">SELECT</a>
   <a href=".html">SELECT</a>
   <a href=".html">SELECT</a>-->
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona z Zdarzeniami</title>
-    <style>
-        body {
-            background-color: #f0e0e6;
-            font-family: Arial, sans-serif;
-            color: #5e3a56;
-            text-align: center;
-        }
-
-        h1 {
-            color: #d8507e;
-        }
-
-        .event-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .event-item {
-            background-color: #f9c7d6;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 10px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .event-item:hover {
-            background-color: #f3a7be;
-        }
-
-        .event-description {
-            font-size: 14px;
-            color: #7a4d62;
-        }
-
-        .input-box {
-            margin: 10px;
-            padding: 8px;
-            border: 1px solid #e1b1c6;
-            border-radius: 5px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zdarzenia w JavaScript</title>
+<style>
+  body {
+    background-color: #ffe6f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a43e6f;
+    margin: 0; padding: 20px;
+    text-align: center;
+  }
+  h1 {
+    color: #d8447e;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto 30px;
+  }
+  li {
+    background: #f7c9d9;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #e5a1b9;
+    transition: background-color 0.3s ease;
+  }
+  li:hover {
+    background-color: #f28fb5;
+  }
+  #demoArea {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ffd9e6;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px #df94ba;
+    min-height: 140px;
+    font-size: 1.1em;
+    color: #7a2542;
+  }
+  input, textarea, button {
+    font-size: 1em;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 2px solid #d8447e;
+    outline: none;
+  }
+  button {
+    cursor: pointer;
+    background-color: #d8447e;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #a43e6f;
+  }
+</style>
 </head>
 <body>
 
-    <h1>Interaktywna Strona z Zdarzeniami</h1>
-    
-    <p>Klikaj, wprowadzaj tekst i eksperymentuj z różnymi zdarzeniami:</p>
+<h1>Wybierz zdarzenie, aby przetestować</h1>
 
-    <input class="input-box" type="text" id="textInput" placeholder="Wpisz tekst..." onfocus="showMessage('onFocus')" onblur="showMessage('onBlur')" onkeyup="showMessage('onKeyUp')" onkeydown="showMessage('onKeyDown')" onkeypress="showMessage('onKeyPress')" onselect="showMessage('onSelect')" onchange="showMessage('onChange')">
+<ul id="eventsList">
+  <li data-event="onBlur">1. onBlur</li>
+  <li data-event="onSelect">2. onSelect</li>
+  <li data-event="onChange">3. onChange</li>
+  <li data-event="onClick">4. onClick</li>
+  <li data-event="onDblClick">5. onDblClick</li>
+  <li data-event="onDragDrop">6. onDragDrop</li>
+  <li data-event="onFocus">7. onFocus</li>
+  <li data-event="onKeyDown">8. onKeyDown</li>
+  <li data-event="onKeyPress">9. onKeyPress</li>
+  <li data-event="onKeyUp">10. onKeyUp</li>
+  <li data-event="onMouseOut">11. onMouseOut</li>
+  <li data-event="onMouseOver">12. onMouseOver</li>
+  <li data-event="onMove">13. onMove</li>
+  <li data-event="onResize">14. onResize</li>
+  <li data-event="onUnload">15. onUnload</li>
+</ul>
 
-    <div class="event-list">
-        <div class="event-item" id="eventOnBlur">
-            <strong>onBlur:</strong> <span class="event-description">Zdarzenie wywołane, gdy pole tekstowe traci fokus.</span>
-        </div>
-        <div class="event-item" id="eventOnSelect">
-            <strong>onSelect:</strong> <span class="event-description">Zdarzenie wywołane, gdy tekst w polu tekstowym jest zaznaczony.</span>
-        </div>
-        <div class="event-item" id="eventOnChange">
-            <strong>onChange:</strong> <span class="event-description">Zdarzenie wywołane, gdy zawartość pola tekstowego zmienia się.</span>
-        </div>
-        <div class="event-item" id="eventOnClick">
-            <strong>onClick:</strong> <span class="event-description">Zdarzenie wywołane, gdy klikniesz w przycisk.</span>
-        </div>
-        <div class="event-item" id="eventOnDbClick">
-            <strong>onDbClick:</strong> <span class="event-description">Zdarzenie wywołane, gdy klikniesz dwukrotnie na elemencie.</span>
-        </div>
-        <div class="event-item" id="eventOnDragDrop">
-            <strong>onDragDrop:</strong> <span class="event-description">Zdarzenie wywołane, gdy element jest przenoszony i upuszczany.</span>
-        </div>
-        <div class="event-item" id="eventOnFocus">
-            <strong>onFocus:</strong> <span class="event-description">Zdarzenie wywołane, gdy pole tekstowe otrzymuje fokus.</span>
-        </div>
-        <div class="event-item" id="eventOnKeyDown">
-            <strong>onKeyDown:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest wciśnięty.</span>
-        </div>
-        <div class="event-item" id="eventOnKeyPress">
-            <strong>onKeyPress:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest naciśnięty.</span>
-        </div>
-        <div class="event-item" id="eventOnKeyUp">
-            <strong>onKeyUp:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest puszczony.</span>
-        </div>
-        <div class="event-item" id="eventOnMouseOut">
-            <strong>onMouseOut:</strong> <span class="event-description">Zdarzenie wywołane, gdy myszka opuszcza obszar elementu.</span>
-        </div>
-        <div class="event-item" id="eventOnMouseOver">
-            <strong>onMouseOver:</strong> <span class="event-description">Zdarzenie wywołane, gdy myszka najedzie na element.</span>
-        </div>
-        <div class="event-item" id="eventOnMove">
-            <strong>onMove:</strong> <span class="event-description">Zdarzenie wywołane, gdy element zmienia pozycję na stronie.</span>
-        </div>
-        <div class="event-item" id="eventOnResize">
-            <strong>onResize:</strong> <span class="event-description">Zdarzenie wywołane, gdy rozmiar okna przeglądarki zostaje zmieniony.</span>
-        </div>
-        <div class="event-item" id="eventOnUnload">
-            <strong>onUnload:</strong> <span class="event-description">Zdarzenie wywołane, gdy strona jest opuszczana (np. zamykasz kartę).</span>
-        </div>
-    </div>
+<div id="demoArea">Kliknij nazwę zdarzenia powyżej, aby zobaczyć demonstrację.</div>
 
-    <button class="input-box" id="clickButton" onclick="showMessage('onClick')">Kliknij mnie!</button>
+<script>
+  const demoArea = document.getElementById('demoArea');
+  const eventsList = document.getElementById('eventsList');
 
-    <script>
-        function showMessage(eventName) {
-            alert('Zdarzenie: ' + eventName);
-            // Tutaj możesz dodać dodatkowe działania dla każdego zdarzenia
-        }
+  // Czyścimy demoArea i tworzymy interaktywny przykład dla każdego eventu
+  function createDemo(eventName) {
+    demoArea.innerHTML = ''; // czyszczenie
 
-        // Przykład dla onDragDrop
-        document.getElementById('clickButton').ondragover = function(event) {
-            event.preventDefault(); // Pozwól na upuszczanie
+    switch(eventName) {
+      case 'onBlur':
+        demoArea.innerHTML = `
+          <input type="text" id="blurInput" placeholder="Kliknij i potem kliknij gdzie indziej" />
+          <p id="msg"></p>
+        `;
+        const blurInput = document.getElementById('blurInput');
+        const msg = document.getElementById('msg');
+        blurInput.onblur = () => msg.textContent = 'onBlur wywołane — pole straciło fokus!';
+        break;
+
+      case 'onSelect':
+        demoArea.innerHTML = `
+          <textarea id="selectArea" rows="4" cols="30">Zaznacz część tego tekstu, aby wywołać onSelect.</textarea>
+          <p id="msg"></p>
+        `;
+        const selectArea = document.getElementById('selectArea');
+        const msgSelect = document.getElementById('msg');
+        selectArea.onselect = () => msgSelect.textContent = 'onSelect wywołane — tekst został zaznaczony!';
+        break;
+
+      case 'onChange':
+        demoArea.innerHTML = `
+          <input type="text" id="changeInput" placeholder="Wpisz coś i kliknij gdzie indziej" />
+          <p id="msg"></p>
+        `;
+        const changeInput = document.getElementById('changeInput');
+        const msgChange = document.getElementById('msg');
+        changeInput.onchange = () => msgChange.textContent = 'onChange wywołane — wartość pola się zmieniła!';
+        break;
+
+      case 'onClick':
+        demoArea.innerHTML = `
+          <button id="clickBtn">Kliknij mnie</button>
+          <p id="msg"></p>
+        `;
+        const clickBtn = document.getElementById('clickBtn');
+        const msgClick = document.getElementById('msg');
+        clickBtn.onclick = () => msgClick.textContent = 'onClick wywołane — przycisk kliknięty!';
+        break;
+
+      case 'onDblClick':
+        demoArea.innerHTML = `
+          <div id="dblClickDiv" style="border:2px solid #a43e6f; padding:20px; cursor:pointer;">
+            Kliknij dwukrotnie tutaj
+          </div>
+          <p id="msg"></p>
+        `;
+        const dblClickDiv = document.getElementById('dblClickDiv');
+        const msgDbl = document.getElementById('msg');
+        dblClickDiv.ondblclick = () => msgDbl.textContent = 'onDblClick wywołane — dwuklik!';
+        break;
+
+      case 'onDragDrop':
+        demoArea.innerHTML = `
+          <div id="dragItem" draggable="true" style="width: 80px; height: 80px; background: #d8447e; margin: 10px auto; border-radius: 10px; color:white; line-height: 80px; font-weight:bold; cursor: grab;">Przeciągnij</div>
+          <div id="dropZone" style="width: 200px; height: 100px; margin: 20px auto; border: 3px dashed #a43e6f; border-radius: 10px; color:#a43e6f; line-height: 100px;">Upuść tutaj</div>
+          <p id="msg"></p>
+        `;
+        const dragItem = document.getElementById('dragItem');
+        const dropZone = document.getElementById('dropZone');
+        const msgDrag = document.getElementById('msg');
+
+        dragItem.ondragstart = e => {
+          e.dataTransfer.setData('text/plain', 'dragged');
         };
-        document.getElementById('clickButton').ondrop = function(event) {
-            showMessage('onDragDrop');
+
+        dropZone.ondragover = e => e.preventDefault();
+
+        dropZone.ondrop = e => {
+          e.preventDefault();
+          msgDrag.textContent = 'onDragDrop wywołane — element upuszczony!';
+        };
+        break;
+
+      case 'onFocus':
+        demoArea.innerHTML = `
+          <input type="text" id="focusInput" placeholder="Kliknij tutaj, aby wywołać onFocus" />
+          <p id="msg"></p>
+        `;
+        const focusInput = document.getElementById('focusInput');
+        const msgFocus = document.getElementById('msg');
+        focusInput.onfocus = () => msgFocus.textContent = 'onFocus wywołane — pole ma fokus!';
+        break;
+
+      case 'onKeyDown':
+        demoArea.innerHTML = `
+          <input type="text" id="keyDownInput" placeholder="Wciśnij klawisz (onKeyDown)" />
+          <p id="msg"></p>
+        `;
+        const keyDownInput = document.getElementById('keyDownInput');
+        const msgKeyDown = document.getElementById('msg');
+        keyDownInput.onkeydown = e => msgKeyDown.textContent = `onKeyDown: wciśnięty klawisz "${e.key}"`;
+        break;
+
+      case 'onKeyPress':
+        demoArea.innerHTML = `
+          <input type="text" id="keyPressInput" placeholder="Wciśnij klawisz (onKeyPress)" />
+          <p id="msg"></p>
+        `;
+        const keyPressInput = document.getElementById('keyPressInput');
+        const msgKeyPress = document.getElementById('msg');
+        keyPressInput.onkeypress = e => msgKeyPress.textContent = `onKeyPress: naciśnięty klawisz "${e.key}"`;
+        break;
+
+      case 'onKeyUp':
+        demoArea.innerHTML = `
+          <input type="text" id="keyUpInput" placeholder="Puść klawisz (onKeyUp)" />
+          <p id="msg"></p>
+        `;
+        const keyUpInput = document.getElementById('keyUpInput');
+        const msgKeyUp = document.getElementById('msg');
+        keyUpInput.onkeyup = e => msgKeyUp.textContent = `onKeyUp: puszczony klawisz "${e.key}"`;
+        break;
+
+      case 'onMouseOut':
+        demoArea.innerHTML = `
+          <div id="mouseOutDiv" style="background:#f7c9d9; padding: 40px; border-radius: 10px; cursor:pointer;">
+            Najedź na mnie, a potem odejdź myszką
+          </div>
+          <p id="msg"></p>
+        `;
+        const mouseOutDiv = document.getElementById('mouseOutDiv');
+        const msgMouseOut = document.getElementById('msg');
+        mouseOutDiv.onmouseout = () => msgMouseOut.textContent = 'onMouseOut wywołane — mysz opuściła obszar!';
+        break;
+
+      case 'onMouseOver':
+        demoArea.innerHTML = `
+          <div id="mouseOverDiv" style="background:#f7c9d9; padding: 40px; border-radius: 10px; cursor:pointer;">
+            Najedź na mnie myszką
+          </div>
+          <p id="msg"></p>
+        `;
+        const mouseOverDiv = document.getElementById('mouseOverDiv');
+        const msgMouseOver = document.getElementById('msg');
+        mouseOverDiv.onmouseover = () => msgMouseOver.textContent = 'onMouseOver wywołane — mysz na elemencie!';
+        break;
+
+      case 'onMove':
+        demoArea.innerHTML = `
+          <p>onMove jest trudne do pokazania, więc tu jest prosta demonstracja:</p>
+          <div id="moveBox" style="width: 150px; height: 150px; background:#d8447e; margin: 20px auto; border-radius:10px; position:relative; cursor:move;">
+            Przesuń mnie
+          </div>
+          <p id="msg"></p>
+        `;
+
+        const moveBox = document.getElementById('moveBox');
+        const msgMove = document.getElementById('msg');
+
+        let isDragging = false;
+        let startX, startY, origX, origY;
+
+        moveBox.onmousedown = function(e) {
+          isDragging = true;
+          startX = e.clientX;
+          startY = e.clientY;
+          const style = window.getComputedStyle(moveBox);
+          origX = parseInt(style.left) || 0;
+          origY = parseInt(style.top) || 0;
+          moveBox.style.position = 'relative';
+          msgMove.textContent = 'Przeciąganie rozpoczęte...';
+          e.preventDefault();
         };
 
-        // Wydarzenie onUnload
-        window.onbeforeunload = function() {
-            return 'Na pewno chcesz opuścić tę stronę?';
+        document.onmouseup = function() {
+          if(isDragging) {
+            isDragging = false;
+            msgMove.textContent = 'onMove wywołane — zakończono przesuwanie!';
+          }
         };
-    </script>
+
+        document.onmousemove = function(e) {
+          if(isDragging) {
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            moveBox.style.left = origX + dx + 'px';
+            moveBox.style.top = origY + dy + 'px';
+          }
+        };
+        break;
+
+      case 'onResize':
+        demoArea.innerHTML = `
+          <p>Zmień rozmiar okna, aby wywołać onResize.</p>
+          <p id="msg">Aktualny rozmiar okna: ${window.innerWidth}x${window.innerHeight}</p>
+        `;
+        const msgResize = document.getElementById('msg');
+        window.onresize = () => {
+          msgResize.textContent = `onResize wywołane — aktualny rozmiar okna: ${window.innerWidth}x${window.innerHeight}`;
+        };
+        break;
+
+      case 'onUnload':
+        demoArea.innerHTML = `
+          <p>Spróbuj zamknąć lub odświeżyć kartę/okno, aby wywołać onUnload.</p>
+          <p id="msg">Uwaga: w nowoczesnych przeglądarkach alert może nie działać zawsze.</p>
+        `;
+        window.onbeforeunload = function(e) {
+          e.preventDefault();
+          e.returnValue = '';
+          return '';
+        };
+        break;
+
+      default:
+        demoArea.innerHTML = 'Brak demonstracji dla tego zdarzenia.';
+    }
+  }
+
+  // Reset onUnload alert jeśli przełączysz na inne demo
+  function resetOnUnload() {
+    window.onbeforeunload = null;
+  }
+
+  eventsList.addEventListener('click', (e) => {
+    if(e.target && e.target.nodeName === "LI") {
+      resetOnUnload();
+      const eventName = e.target.getAttribute('data-event');
+      createDemo(eventName);
+    }
+  });
+</script>
 
 </body>
 </html>
-
