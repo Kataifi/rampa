@@ -1,43 +1,151 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pl">
   <head>
     <meta charset="utf-8">
   </head>
-<body onunload="myFunction()">
+<body>
+<h1>ZDARZENIA</h1>
+<!--<a href="select.html">SELECT</a>
+<a href="blur.html">BLUR</a>
+  <a href="change.html">CHANGE</a>
+  <a href="click.html">CLICK</a>
+  <a href="dbclick.html">DBCLICK</a>
+  <a href="dragdrop.html">DRAGDROP</a>
+  <a href="focus.html">FOCUS</a>
+  <a href="keydown.html">KEYDOWN</a>
+  <a href="keypress.html">KEYPRESS</a>
+  <a href="keyup.html">KEYUP</a>
+  <a href="mouseout.html">MOUSEOUT</a>
+  <a href=".html">MOUSEOVER</a>
+  <a href=".html">SELECT</a>
+  <a href=".html">SELECT</a>
+  <a href=".html">SELECT</a>-->
+  <!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z Zdarzeniami</title>
+    <style>
+        body {
+            background-color: #f0e0e6;
+            font-family: Arial, sans-serif;
+            color: #5e3a56;
+            text-align: center;
+        }
 
-<p>Select a new fruit from the list.</p>
+        h1 {
+            color: #d8507e;
+        }
 
-<select id="mySelect" onchange="myFunction()">
-  <option value="jabłko">Jabłko</option>
-  <option value="banan">Banan</option>
-  <option value="truskawka">Truskawka</option>
-  <option value="malina">Malina</option>
-</select>
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+        }
 
-<p>When you select a new fruit, a function is triggered which outputs the value of the selected fruit.</p>
+        .event-item {
+            background-color: #f9c7d6;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-<p id="demo"></p>
+        .event-item:hover {
+            background-color: #f3a7be;
+        }
 
-<script>
-function myFunction() {
-  var x = document.getElementById("mySelect").value;
-  document.getElementById("demo").innerHTML = "You selected: " + x;
-}
-</script>
-  <hr><br>
-  <p>The onclick event triggers a function when an element is clicked on.</p>
-<p>Click to trigger a function that will output "Hello World":</p>
+        .event-description {
+            font-size: 14px;
+            color: #7a4d62;
+        }
 
-<button onclick="myFunction()">Click me</button>
+        .input-box {
+            margin: 10px;
+            padding: 8px;
+            border: 1px solid #e1b1c6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
 
-<p id="demo"></p>
-<hr>
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello World";
-}
-</script>
- <hr>
+    <h1>Interaktywna Strona z Zdarzeniami</h1>
+    
+    <p>Klikaj, wprowadzaj tekst i eksperymentuj z różnymi zdarzeniami:</p>
+
+    <input class="input-box" type="text" id="textInput" placeholder="Wpisz tekst..." onfocus="showMessage('onFocus')" onblur="showMessage('onBlur')" onkeyup="showMessage('onKeyUp')" onkeydown="showMessage('onKeyDown')" onkeypress="showMessage('onKeyPress')" onselect="showMessage('onSelect')" onchange="showMessage('onChange')">
+
+    <div class="event-list">
+        <div class="event-item" id="eventOnBlur">
+            <strong>onBlur:</strong> <span class="event-description">Zdarzenie wywołane, gdy pole tekstowe traci fokus.</span>
+        </div>
+        <div class="event-item" id="eventOnSelect">
+            <strong>onSelect:</strong> <span class="event-description">Zdarzenie wywołane, gdy tekst w polu tekstowym jest zaznaczony.</span>
+        </div>
+        <div class="event-item" id="eventOnChange">
+            <strong>onChange:</strong> <span class="event-description">Zdarzenie wywołane, gdy zawartość pola tekstowego zmienia się.</span>
+        </div>
+        <div class="event-item" id="eventOnClick">
+            <strong>onClick:</strong> <span class="event-description">Zdarzenie wywołane, gdy klikniesz w przycisk.</span>
+        </div>
+        <div class="event-item" id="eventOnDbClick">
+            <strong>onDbClick:</strong> <span class="event-description">Zdarzenie wywołane, gdy klikniesz dwukrotnie na elemencie.</span>
+        </div>
+        <div class="event-item" id="eventOnDragDrop">
+            <strong>onDragDrop:</strong> <span class="event-description">Zdarzenie wywołane, gdy element jest przenoszony i upuszczany.</span>
+        </div>
+        <div class="event-item" id="eventOnFocus">
+            <strong>onFocus:</strong> <span class="event-description">Zdarzenie wywołane, gdy pole tekstowe otrzymuje fokus.</span>
+        </div>
+        <div class="event-item" id="eventOnKeyDown">
+            <strong>onKeyDown:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest wciśnięty.</span>
+        </div>
+        <div class="event-item" id="eventOnKeyPress">
+            <strong>onKeyPress:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest naciśnięty.</span>
+        </div>
+        <div class="event-item" id="eventOnKeyUp">
+            <strong>onKeyUp:</strong> <span class="event-description">Zdarzenie wywołane, gdy klawisz jest puszczony.</span>
+        </div>
+        <div class="event-item" id="eventOnMouseOut">
+            <strong>onMouseOut:</strong> <span class="event-description">Zdarzenie wywołane, gdy myszka opuszcza obszar elementu.</span>
+        </div>
+        <div class="event-item" id="eventOnMouseOver">
+            <strong>onMouseOver:</strong> <span class="event-description">Zdarzenie wywołane, gdy myszka najedzie na element.</span>
+        </div>
+        <div class="event-item" id="eventOnMove">
+            <strong>onMove:</strong> <span class="event-description">Zdarzenie wywołane, gdy element zmienia pozycję na stronie.</span>
+        </div>
+        <div class="event-item" id="eventOnResize">
+            <strong>onResize:</strong> <span class="event-description">Zdarzenie wywołane, gdy rozmiar okna przeglądarki zostaje zmieniony.</span>
+        </div>
+        <div class="event-item" id="eventOnUnload">
+            <strong>onUnload:</strong> <span class="event-description">Zdarzenie wywołane, gdy strona jest opuszczana (np. zamykasz kartę).</span>
+        </div>
+    </div>
+
+    <button class="input-box" id="clickButton" onclick="showMessage('onClick')">Kliknij mnie!</button>
+
+    <script>
+        function showMessage(eventName) {
+            alert('Zdarzenie: ' + eventName);
+            // Tutaj możesz dodać dodatkowe działania dla każdego zdarzenia
+        }
+
+        // Przykład dla onDragDrop
+        document.getElementById('clickButton').ondragover = function(event) {
+            event.preventDefault(); // Pozwól na upuszczanie
+        };
+        document.getElementById('clickButton').ondrop = function(event) {
+            showMessage('onDragDrop');
+        };
+
+        // Wydarzenie onUnload
+        window.onbeforeunload = function() {
+            return 'Na pewno chcesz opuścić tę stronę?';
+        };
+    </script>
 
 </body>
 </html>
+
