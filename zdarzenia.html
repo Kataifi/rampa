@@ -306,18 +306,18 @@
     }
   }
 
-  // Reset onUnload alert jeśli przełączysz na inne demo
-  function resetOnUnload() {
-    window.onbeforeunload = null;
-  }
+  case 'onUnload':
+  demoArea.innerHTML = `
+    <p>Spróbuj zamknąć lub odświeżyć kartę/okno, aby wywołać onUnload.</p>
+    <p id="msg">Uwaga: przeglądarki pokazują domyślne potwierdzenie bez niestandardowego tekstu.</p>
+  `;
+  window.onbeforeunload = function (e) {
+    e.preventDefault(); // standard wymaga preventDefault()
+    e.returnValue = ''; // konieczne, by przeglądarka pokazała potwierdzenie
+    return ''; // też potrzebne dla kompatybilności
+  };
+  break;
 
-  eventsList.addEventListener('click', (e) => {
-    if(e.target && e.target.nodeName === "LI") {
-      resetOnUnload();
-      const eventName = e.target.getAttribute('data-event');
-      createDemo(eventName);
-    }
-  });
 </script>
 
 </body>
