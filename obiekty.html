@@ -81,5 +81,22 @@
       let result = text.toUpperCase();
       document.getElementById("demo").innerHTML = result;
     </script>
+    <div>
+      <p id="demo1"></p>
+
+<p>The fontsize() method is deprecated in JavaScript.</p>
+<p>Use a style attribute instead:</p>
+
+<p id="demo2"></p>
+
+<script>
+let text = "Hello World!";
+let result = text.fontsize(18);
+document.getElementById("demo1").innerHTML = result;
+
+result = "<span style='font-size:64px'>" + text + "</span>";
+document.getElementById("demo2").innerHTML = result;
+</script>
+    </div>
   </body>
 </HTML>
