@@ -2,10 +2,75 @@
 <HTML lang="pl">
   <head>
     <meta charset="utf-8">
+    <TITLE>Gry komputerowe</TITLE>
+    <link rel="stylesheet" href="styl.css">
   </head>
   <Body>
-   Egzaminy
+   <header> <h1> Ranking gier komputerowych</h1></header>
+    <section id="lewa">
+    <h3> Top 5 gier w tym miesiącu</h3>
+      <ul>
+         <?php
+                $connect = mysqli_connect("localhost", "root", "", "gry");
+                $query = "SELECT nazwa, punkty FROM gry ORDER BY punkty DESC LIMIT 5;";
+                $result = mysqli_query($connect, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<li>{$row['nazwa']} <span class='punkty'>{$row['punkty']}</span></li>";
+                }
+                ?>
+      </ul>
+      <h3>Nasz sklep</h3>
+      <a href="http://sklep.gry.pl>Tu kupisz gry</a>
+        <h3>Stronę wykonał</h3>
+        <p>3</p>
+    </section>
+    <section id="srodek">
+        <?php
+            $query = "SELECT id, nazwa, zdjecie FROM gry;";
+            $result = mysqli_query($connect, $query);
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<div class='gra'>
+                        <img src='{$row['zdjecie']}' alt='{$row['nazwa']}' title='{$row['id']}'>
+                        <p>{$row['nazwa']}</p>
+                    </div>";
+            }
+            ?>
+        </section>
+    <section id="prawa">
+    <h3>Dodaj nową grę</h3>
+      <form action="gry.php" method="POST">
+                <label>
+                    nazwa<br>
+                    <input type="text" name="nazwa"><br>
+                </label>
+                <label>
+                    opis<br>
+                    <input type="text" name="opis"><br>
+                </label>
+                <label>
+                    cena<br>
+                    <input type="text" name="cena"><br>
+                </label>
+                <label>
+                    zdjecie<br>
+                    <input type="text" name="zdjecie"><br>
+                </label>
+                <button type="submit" name="dodaj">DODAJ</button>
+            </form>
+            <?php
+            if (isset($_POST["dodaj"]) && !empty($_POST["nazwa"])) {
+                $nazwa = $_POST["nazwa"];
+                $opis = $_POST["opis"];
+                $cena = $_POST["cena"];
+                $zdjecie = $_POST["zdjecie"];
+                $query = "INSERT INTO gry VALUES (NULL, '$nazwa', '$opis', 0, $cena, '$zdjecie');";
+                mysqli_query($connect, $query);
+                header("location: gry.php");
+            }
+            ?>
+   
+    </section>
+    <footer> stopa</footer>
     <a href="index.html">Powrót</a><br>
-   Kwalifikacja INF3 - Czerwiec 2025 - Zadanie praktyczne nr 1
   </Body>
 </HTML>
