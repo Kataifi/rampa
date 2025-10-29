@@ -1,0 +1,53 @@
+*{
+  font-family:Garamond;
+  color:white;
+}
+header{
+  background-color:indigo;
+  text-align:center;
+  padding:2px;
+}
+#lewa,#prawa{
+  background-color:indigo;
+  height:600px;
+}
+#srodek{
+  background-color:black;
+  height:600px;
+  overflow:scroll;
+}
+@media (min-width: 800px) {
+    main {
+        flex-direction: row;
+    }
+
+    #lewy,
+    #prawy {
+        width: 20%;
+    }
+
+    #srodkowy {
+        width: 60%
+    }
+}
+footer{
+  background-color:indigo;
+  height:150px;
+}
+.punkty{
+  background-color:tomato;
+  border-radius:50%;
+  padding:5px;
+}
+li{
+  padding:5px;
+}
+.gra{
+  float:left;
+  text-align:center;
+  padding:3px;
+}
+input{
+  padding:10px;
+  color:indigo;
+}
