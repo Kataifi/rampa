@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sodamati</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>/* Import czcionki Lemonada */
+body {
+  margin: 0;
+  font-family: 'Lemonada', sans-serif;
+  background-color: #fffdf9;
+  color: #333;
+}
+
+/* Nawigacja */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ff6699;
+  color: white;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Sekcja hero */
+.hero {
+  background: linear-gradient(120deg, #ff6699, #ffcc66);
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: white;
+  color: #ff6699;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: #ffcc66;
+  color: white;
+}
+
+/* Sekcja cech */
+.features {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.features h2 {
+  font-size: 2.2rem;
+  color: #ff6699;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.feature {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 280px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.feature h3 {
+  color: #ff6699;
+  margin: 1rem 0 0.5rem;
+}
+
+/* CTA */
+.cta {
+  background: #ff6699;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-light {
+  background: white;
+  color: #ff6699;
+}
+
+.btn-light:hover {
+  background: #ffcc66;
+  color: white;
+}
+
+/* Stopka */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Sodamati</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">Oferta</a></li>
+        <li><a href="#">O nas</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Orzeźwienie w każdej kropli</h1>
+      <p>Naturalne napoje gazowane pełne smaku i energii.</p>
+      <a href="#" class="btn">Zamów teraz</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Dlaczego Sodamati?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <img src="https://picsum.photos/200?1" alt="Naturalne składniki" />
+        <h3>Naturalne składniki</h3>
+        <p>Używamy tylko świeżych owoców i naturalnych aromatów.</p>
+      </div>
+      <div class="feature">
+        <img src="https://picsum.photos/200?2" alt="Bez konserwantów" />
+        <h3>Bez konserwantów</h3>
+        <p>Każda butelka to czysta przyjemność bez sztucznych dodatków.</p>
+      </div>
+      <div class="feature">
+        <img src="https://picsum.photos/200?3" alt="Ekologiczne opakowania" />
+        <h3>Ekologiczne opakowania</h3>
+        <p>Dbamy o planetę, dlatego używamy materiałów z recyklingu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Spróbuj Sodamati już dziś!</h2>
+    <a href="#" class="btn btn-light">Zamów online</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Sodamati. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+</body>
+</html>
