@@ -10,14 +10,14 @@
     <section id="lewa">
     <h3> Top 5 gier w tym miesiącu</h3>
       <ul>
-         <?php
+       <!--  <?php
                 $connect = mysqli_connect("localhost", "root", "", "gry");
                 $query = "SELECT nazwa, punkty FROM gry ORDER BY punkty DESC LIMIT 5;";
                 $result = mysqli_query($connect, $query);
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<li>{$row['nazwa']} <span class='punkty'>{$row['punkty']}</span></li>";
                 }
-                ?>
+                ?>-->
       </ul>
       <h3>Nasz sklep</h3>
       <a href="http://sklep.gry.pl>Tu kupisz gry</a>
@@ -25,7 +25,7 @@
         <p>3</p>
     </section>
     <section id="srodek">
-        <?php
+      <!--  <?php
             $query = "SELECT id, nazwa, zdjecie FROM gry;";
             $result = mysqli_query($connect, $query);
             while ($row = mysqli_fetch_array($result)) {
@@ -34,7 +34,7 @@
                         <p>{$row['nazwa']}</p>
                     </div>";
             }
-            ?>
+            ?-->
         </section>
     <section id="prawa">
     <h3>Dodaj nową grę</h3>
@@ -57,7 +57,7 @@
                 </label>
                 <button type="submit" name="dodaj">DODAJ</button>
             </form>
-            <?php
+          <!--  <?php
             if (isset($_POST["dodaj"]) && !empty($_POST["nazwa"])) {
                 $nazwa = $_POST["nazwa"];
                 $opis = $_POST["opis"];
@@ -67,7 +67,7 @@
                 mysqli_query($connect, $query);
                 header("location: gry.php");
             }
-            ?>
+            ?>-->
    
     </section>
     <footer> stopa</footer>
