@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Prosta strona JS</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #cc2c7a;
+        }
+
+        button {
+            background-color: #ff99cc;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #box {
+            margin-top: 20px;
+        }
+
+        .item {
+            background-color: #ffb3d9;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cc2c7a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM </h1>
+
+    <input type="text" id="textInput" placeholder="Napisz coś..." />
+    <p id="info">Naciśnij klawisz</p>
+
+    <br>
+    <button onclick="addElement()">Dodaj element</button>
+    <button onclick="removeElement()">Usuń element</button>
+
+    <div id="box"></div>
+
+    <script>
+        const box = document.getElementById("box");
+        const input = document.getElementById("textInput");
+        const info = document.getElementById("info");
+
+        // document.createElement()
+        function addElement() {
+            const newDiv = document.createElement("div");
+            newDiv.className = "item";
+            newDiv.textContent = "Nowy element 🌸";
+            box.appendChild(newDiv);
+        }
+
+        // removeChild()
+        function removeElement() {
+            if (box.lastChild) {
+                box.removeChild(box.lastChild);
+            }
+        }
+
+        // keypress
+        input.addEventListener("keypress", function(event) {
+            info.textContent = "Wciśnięto klawisz: " + event.key;
+        });
+
+        // keyup
+        input.addEventListener("keyup", function() {
+            info.textContent = "Puściłeś klawisz 💕";
+        });
+    </script>
+
+</body>
+</html>
