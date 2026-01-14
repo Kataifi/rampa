@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Prosta strona JS</title>
+    <title>Edytowalne elementy</title>
     <style>
         body {
             background-color: #ffe6f0;
@@ -26,6 +26,12 @@
             border-radius: 8px;
         }
 
+        input {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cc2c7a;
+        }
+
         #box {
             margin-top: 20px;
         }
@@ -37,42 +43,21 @@
             border-radius: 6px;
         }
 
-        input {
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #cc2c7a;
+        #info {
+            color: #cc2c7a;
         }
-         .fixed-back {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #f06292;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s, transform 0.2s;
-      z-index: 1000;
-    }
-
-    .fixed-back:hover {
-      background-color: #ec407a;
-      transform: scale(1.05);
-    }
     </style>
 </head>
 <body>
 
-    <h1>DOM </h1>
+    <h1>Dodawanie własnych elementów 💗</h1>
 
-    <input type="text" id="textInput" placeholder="Napisz coś..." />
-    <p id="info">Naciśnij klawisz</p>
+    <input type="text" id="textInput" placeholder="Wpisz tekst elementu" />
+    <p id="info">Zacznij pisać...</p>
 
     <br>
     <button onclick="addElement()">Dodaj element</button>
-    <button onclick="removeElement()">Usuń element</button>
+    <button onclick="removeElement()">Usuń ostatni</button>
 
     <div id="box"></div>
 
@@ -83,10 +68,14 @@
 
         // document.createElement()
         function addElement() {
+            if (input.value === "") return;
+
             const newDiv = document.createElement("div");
             newDiv.className = "item";
-            newDiv.textContent = "Nowy element 🌸";
+            newDiv.textContent = input.value;
+
             box.appendChild(newDiv);
+            input.value = "";
         }
 
         // removeChild()
@@ -98,14 +87,14 @@
 
         // keypress
         input.addEventListener("keypress", function(event) {
-            info.textContent = "Wciśnięto klawisz: " + event.key;
+            info.textContent = "Piszesz: " + event.key;
         });
 
         // keyup
         input.addEventListener("keyup", function() {
-            info.textContent = "Puściłeś klawisz 💕";
+            info.textContent = "Aktualny tekst: " + input.value;
         });
     </script>
-<a class="fixed-back" href="JS.html">🠔 Powrót</a>
+
 </body>
 </html>
