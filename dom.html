@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Edytowalne elementy</title>
+    <title>Prosta strona JS</title>
     <style>
         body {
             background-color: #ffe6f0;
@@ -26,13 +26,6 @@
             border-radius: 8px;
         }
 
-        input {
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #cc2c7a;
-            margin: 5px;
-        }
-
         #box {
             margin-top: 20px;
         }
@@ -42,77 +35,58 @@
             margin: 5px;
             padding: 10px;
             border-radius: 6px;
-            cursor: pointer;
         }
 
-        .selected {
-            border: 2px solid #cc2c7a;
+        input {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cc2c7a;
         }
+            .fixed-back {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #f06292;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+      z-index: 1000;
+    }
 
-        #info {
-            color: #cc2c7a;
-        }
+    .fixed-back:hover {
+      background-color: #ec407a;
+      transform: scale(1.05);
+    }
     </style>
 </head>
 <body>
 
-    <h1>Różowa strona z edycją 💗</h1>
+    <h1>Różowa strona z JavaScript 💗</h1>
 
-    <!-- Dodawanie -->
-    <input type="text" id="addInput" placeholder="Wpisz tekst elementu">
-    <button onclick="addElement()">Dodaj element</button>
-
-    <p id="info">Kliknij element, aby go edytować</p>
-
-    <!-- Edycja -->
-    <input type="text" id="editInput" placeholder="Edytuj wybrany element">
-    <button onclick="editElement()">Edytuj</button>
+    <input type="text" id="textInput" placeholder="Napisz coś..." />
+    <p id="info">Naciśnij klawisz</p>
 
     <br>
-    <button onclick="removeElement()">Usuń ostatni</button>
+    <button onclick="addElement()">Dodaj element</button>
+    <button onclick="removeElement()">Usuń element</button>
 
     <div id="box"></div>
 
     <script>
         const box = document.getElementById("box");
-        const addInput = document.getElementById("addInput");
-        const editInput = document.getElementById("editInput");
+        const input = document.getElementById("textInput");
         const info = document.getElementById("info");
-
-        let selectedElement = null;
 
         // document.createElement()
         function addElement() {
-            if (addInput.value === "") return;
-
             const newDiv = document.createElement("div");
             newDiv.className = "item";
-            newDiv.textContent = addInput.value;
-
-            newDiv.onclick = function () {
-                selectElement(newDiv);
-            };
-
+            newDiv.textContent = "Nowy element 🌸";
             box.appendChild(newDiv);
-            addInput.value = "";
-        }
-
-        // wybieranie elementu
-        function selectElement(element) {
-            if (selectedElement) {
-                selectedElement.classList.remove("selected");
-            }
-
-            selectedElement = element;
-            selectedElement.classList.add("selected");
-            editInput.value = selectedElement.textContent;
-        }
-
-        // edycja elementu
-        function editElement() {
-            if (selectedElement && editInput.value !== "") {
-                selectedElement.textContent = editInput.value;
-            }
         }
 
         // removeChild()
@@ -123,15 +97,15 @@
         }
 
         // keypress
-        addInput.addEventListener("keypress", function (event) {
+        input.addEventListener("keypress", function(event) {
             info.textContent = "Wciśnięto klawisz: " + event.key;
         });
 
         // keyup
-        addInput.addEventListener("keyup", function () {
-            info.textContent = "Tekst dodawania: " + addInput.value;
+        input.addEventListener("keyup", function() {
+            info.textContent = "Puściłeś klawisz 💕";
         });
     </script>
-
+<a class="fixed-back" href="JS.html">🠔 Powrót</a>
 </body>
 </html>
