@@ -2,82 +2,135 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Slider + Lightbox</title>
+  <title>Pink Slider & Lightbox</title>
+
   <style>
+    :root {
+      --pink-1: #ffe4ef;
+      --pink-2: #ffb6d5;
+      --pink-3: #ff7eb3;
+      --pink-4: #ff4d9d;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px 35px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(255, 77, 157, 0.25);
       text-align: center;
+      max-width: 380px;
+      width: 100%;
     }
 
-    input[type="range"] {
-      width: 300px;
+    h2 {
       margin-bottom: 20px;
+      color: var(--pink-4);
     }
 
-    img {
-      width: 300px;
+    /* IMAGE */
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 16px;
       cursor: pointer;
-      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 25px rgba(255, 126, 179, 0.35);
+    }
+
+    .image-wrapper img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 30px rgba(255, 77, 157, 0.45);
+    }
+
+    /* SLIDER */
+    input[type="range"] {
+      width: 100%;
+      margin-top: 25px;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 5px;
+      background: linear-gradient(to right, var(--pink-3), var(--pink-4));
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 4px solid var(--pink-4);
+      cursor: pointer;
       transition: transform 0.2s;
     }
 
-    img:hover {
-      transform: scale(1.05);
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
     }
 
     /* LIGHTBOX */
     .lightbox {
-      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(255, 77, 157, 0.85);
+      display: none;
       justify-content: center;
       align-items: center;
+      animation: fadeIn 0.3s ease;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      animation: zoomIn 0.3s ease;
     }
 
     .close {
       position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
+      top: 25px;
+      right: 35px;
+      font-size: 34px;
+      color: var(--white);
       cursor: pointer;
     }
-           .fixed-back {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #f06292;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s, transform 0.2s;
-      z-index: 1000;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .fixed-back:hover {
-      background-color: #ec407a;
-      transform: scale(1.05);
+    @keyframes zoomIn {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-  <h2>Slider + Lightbox</h2>
+  <div class="card">
+    <h2>🌸 Pink Gallery 🌸</h2>
 
-  <input type="range" min="0" max="2" value="0" id="slider">
+    <div class="image-wrapper">
+      <img id="image" src="https://picsum.photos/id/1015/600/400">
+    </div>
 
-  <div>
-    <img id="image" src="https://picsum.photos/id/1015/600/400" alt="Obraz">
+    <input type="range" min="0" max="2" value="0" id="slider">
   </div>
 
   <!-- LIGHTBOX -->
@@ -99,18 +152,15 @@
     const lightboxImg = document.getElementById("lightboxImg");
     const close = document.getElementById("close");
 
-    // Slider zmienia obrazek
     slider.addEventListener("input", () => {
       image.src = images[slider.value];
     });
 
-    // Otwórz lightbox
     image.addEventListener("click", () => {
       lightbox.style.display = "flex";
       lightboxImg.src = image.src;
     });
 
-    // Zamknij lightbox
     close.addEventListener("click", () => {
       lightbox.style.display = "none";
     });
@@ -121,6 +171,6 @@
       }
     });
   </script>
-<a class="fixed-back" href="JS.html">🠔 Powrót</a>
+
 </body>
 </html>
