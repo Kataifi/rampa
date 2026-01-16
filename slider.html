@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Slider + Lightbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 300px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Slider + Lightbox</h2>
+
+  <input type="range" min="0" max="2" value="0" id="slider">
+
+  <div>
+    <img id="image" src="https://picsum.photos/id/1015/600/400" alt="Obraz">
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="close">&times;</span>
+    <img id="lightboxImg">
+  </div>
+
+  <script>
+    const images = [
+      "https://picsum.photos/id/1015/600/400",
+      "https://picsum.photos/id/1016/600/400",
+      "https://picsum.photos/id/1018/600/400"
+    ];
+
+    const slider = document.getElementById("slider");
+    const image = document.getElementById("image");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const close = document.getElementById("close");
+
+    // Slider zmienia obrazek
+    slider.addEventListener("input", () => {
+      image.src = images[slider.value];
+    });
+
+    // Otwórz lightbox
+    image.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = image.src;
+    });
+
+    // Zamknij lightbox
+    close.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
