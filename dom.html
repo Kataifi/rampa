@@ -105,6 +105,15 @@
         input.addEventListener("keyup", function() {
             info.textContent = "Puściłeś klawisz ";
         });
+        const cnt = document.querySelector(".container");
+let counter = 0;
+
+const btnBefore = document.querySelector("#test-before");
+btnBefore.addEventListener("click", () => {
+    const el = document.createElement("span");
+    el.innerHTML = "Przed " + ++counter;
+    cnt.before(el);
+});
     </script>
     
 <a class="fixed-back" href="JS.html">🠔 Powrót</a>
