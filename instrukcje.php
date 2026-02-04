@@ -92,6 +92,6 @@ if (isset($_POST['akcja'])) {
         </div>
     <?php endif; ?>
 </div>
-
+<a class="fixed-back" href="index.html"> 🠔 Powrót</a>
 </body>
 </html>
