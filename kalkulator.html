@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Różowy Kalkulator</title>
+<title>Tabliczka Mnożenia</title>
 
 <style>
 body {
@@ -14,79 +14,44 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.kalkulator {
+.container {
     background: #ffe6f2;
-    padding: 20px;
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(255, 20, 147, 0.3);
-    width: 320px;
 }
 
-#wynik {
-    width: 100%;
-    height: 60px;
-    border: none;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    text-align: right;
-    font-size: 26px;
-    padding: 10px;
-    background: #fff0f6;
+h2 {
+    text-align: center;
     color: #cc0066;
-    box-sizing: border-box;
 }
 
-.przyciski {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+table {
+    border-collapse: collapse;
+    margin-top: 15px;
 }
 
-button {
-    height: 60px;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
+td, th {
+    border: 2px solid #ff66b2;
+    padding: 10px;
+    text-align: center;
+    min-width: 40px;
     font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-    background: #ff66b2;
+}
+
+th {
+    background-color: #ff66b2;
     color: white;
 }
 
-button:hover {
-    transform: scale(1.05);
-    background: #ff3385;
-}
-
-.operator {
-    background: #ff1493;
-}
-
-.operator:hover {
-    background: #e60073;
-}
-
-.equal {
-    background: #ff85c1;
-    grid-row: span 2;
-}
-
-.equal:hover {
-    background: #ff4da6;
-}
-
-.zero {
-    grid-column: span 2;
-}
-
-.clear {
-    background: #ffb3d9;
+td {
+    background-color: #fff0f6;
     color: #99004d;
 }
 
-.clear:hover {
-    background: #ff80bf;
+td:hover {
+    background-color: #ffb3d9;
+    cursor: pointer;
 }
     .fixed-back {
       position: fixed;
@@ -112,54 +77,43 @@ button:hover {
 </head>
 <body>
 
-<div class="kalkulator">
-    <input type="text" id="wynik" disabled>
-
-    <div class="przyciski">
-        <button class="clear" onclick="czysc()">C</button>
-        <button onclick="dodaj('(')">(</button>
-        <button onclick="dodaj(')')">)</button>
-        <button class="operator" onclick="dodaj('/')">÷</button>
-
-        <button onclick="dodaj('7')">7</button>
-        <button onclick="dodaj('8')">8</button>
-        <button onclick="dodaj('9')">9</button>
-        <button class="operator" onclick="dodaj('*')">×</button>
-
-        <button onclick="dodaj('4')">4</button>
-        <button onclick="dodaj('5')">5</button>
-        <button onclick="dodaj('6')">6</button>
-        <button class="operator" onclick="dodaj('-')">−</button>
-
-        <button onclick="dodaj('1')">1</button>
-        <button onclick="dodaj('2')">2</button>
-        <button onclick="dodaj('3')">3</button>
-        <button class="operator" onclick="dodaj('+')">+</button>
-
-        <button class="zero" onclick="dodaj('0')">0</button>
-        <button onclick="dodaj('.')">.</button>
-        <button class="equal" onclick="oblicz()">=</button>
-    </div>
+<div class="container">
+    <h2>Tabliczka Mnożenia 1–10</h2>
+    <table id="tabliczka"></table>
 </div>
 
 <script>
-function dodaj(wartosc) {
-    document.getElementById("wynik").value += wartosc;
-}
+const table = document.getElementById("tabliczka");
 
-function czysc() {
-    document.getElementById("wynik").value = "";
-}
+for (let i = 0; i <= 10; i++) {
+    let row = document.createElement("tr");
 
-function oblicz() {
-    try {
-        document.getElementById("wynik").value =
-            eval(document.getElementById("wynik").value);
-    } catch {
-        alert("Błąd w działaniu!");
+    for (let j = 0; j <= 10; j++) {
+        let cell;
+
+        if (i === 0 && j === 0) {
+            cell = document.createElement("th");
+            cell.innerText = "×";
+        } 
+        else if (i === 0) {
+            cell = document.createElement("th");
+            cell.innerText = j;
+        } 
+        else if (j === 0) {
+            cell = document.createElement("th");
+            cell.innerText = i;
+        } 
+        else {
+            cell = document.createElement("td");
+            cell.innerText = i * j;
+        }
+
+        row.appendChild(cell);
     }
+
+    table.appendChild(row);
 }
 </script>
-<a class="fixed-back" href="JS.html">🠔 Powrót</a>
+
 </body>
 </html>
