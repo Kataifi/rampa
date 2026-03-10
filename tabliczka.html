@@ -6,10 +6,44 @@
   </head>
   <body>
     <script>
-      let table = new Array(10);
-      for(let i = 0; i <10;i++){
-        table[i] = new Array(10);
-      }
+      //let table = new Array(10);
+     // for(let i = 0; i <10;i++){
+      //  table[i] = new Array(10);
+     // }
+      
+function generujTabliczkeMnozenia(rozmiar) {
+    
+    let tabliczka = new Array(rozmiar);
+
+    for (let i = 0; i < rozmiar; i++) {
+        
+        tabliczka[i] = new Array(rozmiar);
+
+        for (let j = 0; j < rozmiar; j++) {
+            tabliczka[i][j] = (i + 1) * (j + 1); 
+        }
+    }
+
+    return tabliczka;
+}
+
+
+function wyswietlTabliczke(tabliczka) {
+    if (!Array.isArray(tabliczka)) {
+        console.error("Błąd: przekazany argument nie jest tablicą.");
+        return;
+    }
+
+    console.log("📊 Tabliczka mnożenia:");
+    for (let wiersz of tabliczka) {
+        console.log(wiersz.join("\t")); // \t = tabulator dla czytelności
+    }
+}
+
+let rozmiar = 10; // Możesz zmienić np. na 5 lub 12
+let tabliczka = generujTabliczkeMnozenia(rozmiar);
+wyswietlTabliczke(tabliczka);
+
     </script>
     <a href="JS.html">Powrót</a>
   </body>
