@@ -1,17 +1,77 @@
 <!DOCTYPE html> 
 <html lang="pl"> 
-  <head> 
-    <meta charset="UTF-8"> 
-    <title>Tabliczka Mnożenia</title>
-  </head>
-  <body>
-    TABLICZKA JEST W KONSOLI
-    <script>
-      //let table = new Array(10);
-     // for(let i = 0; i <10;i++){
-      //  table[i] = new Array(10);
-     // }
-      
+<head> 
+<meta charset="UTF-8"> 
+<title>Tabliczka Mnożenia</title>
+
+<style>
+body{
+    background: linear-gradient(270deg,#ffe6f0,#ffd6e7,#fff0f5);
+    background-size: 600% 600%;
+    animation: tlo 12s ease infinite;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    padding-top:60px;
+}
+
+/* animacja tła */
+@keyframes tlo{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+h1{
+    color:#cc6699;
+    animation: pojawienie 2s ease;
+}
+
+/* animacja pojawiania się */
+@keyframes pojawienie{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.info{
+    font-size:20px;
+    color:#993366;
+    margin-bottom:30px;
+}
+
+/* przycisk */
+a{
+    display:inline-block;
+    padding:12px 20px;
+    background-color:#ffd6e7;
+    color:#993366;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+/* animacja hover */
+a:hover{
+    background-color:#ffb6d9;
+    transform:scale(1.1);
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Tabliczka Mnożenia</h1>
+<div class="info">Tabliczka jest w konsoli (F12)</div>
+
+<script>
+
 function generujTabliczkeMnozenia(rozmiar) {
     
     let tabliczka = new Array(10);
@@ -28,7 +88,6 @@ function generujTabliczkeMnozenia(rozmiar) {
     return tabliczka;
 }
 
-
 function wyswietlTabliczke(tabliczka) {
     if (!Array.isArray(tabliczka)) {
         console.error("Błąd: przekazany argument nie jest tablicą.");
@@ -37,15 +96,18 @@ function wyswietlTabliczke(tabliczka) {
 
     console.log("Tabliczka mnożenia:");
     for (let wiersz of tabliczka) {
-        console.log(wiersz.join("\t")); // \t = tabulator dla czytelności
+        console.log(wiersz.join("\t"));
     }
 }
 
-let rozmiar = 10; // Możesz zmienić np. na 5 lub 12
+let rozmiar = 10;
 let tabliczka = generujTabliczkeMnozenia(10);
 wyswietlTabliczke(tabliczka);
 
-    </script>
-    <a href="JS.html">Powrót</a>
-  </body>
+</script>
+
+<br><br>
+<a href="JS.html">Powrót</a>
+
+</body>
 </html>
