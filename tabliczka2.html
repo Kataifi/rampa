@@ -66,7 +66,14 @@ a:hover{
     transform:scale(1.1);
     background:#ffb6d9;
 }
-
+@keyframes spadanie{
+    0%{
+        transform:translateY(0);
+    }
+    100%{
+        transform:translateY(100vh);
+    }
+}
 </style>
 
 </head>
@@ -113,7 +120,26 @@ let tab = generujTabliczkeMnozenia(10);
 wyswietlTabliczke(tab);
 
 </script>
+<script>
+function stworzSerduszko(){
+    const serce = document.createElement("div");
+    serce.innerHTML = "💗";
+    serce.style.position = "fixed";
+    serce.style.top = "-20px";
+    serce.style.left = Math.random() * window.innerWidth + "px";
+    serce.style.fontSize = (Math.random()*20 + 15) + "px";
+    serce.style.opacity = Math.random();
+    serce.style.animation = "spadanie 5s linear";
+    
+    document.body.appendChild(serce);
 
+    setTimeout(()=>{
+        serce.remove();
+    },5000);
+}
+
+setInterval(stworzSerduszko, 500);
+</script>
 <br>
 <a href="JS.html">Powrót</a>
 
