@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Perfumy</title>
+
+<style>
+body{
+    background-color:#ffe6f0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+}
+
+h1{
+    color:#cc6699;
+}
+
+.container{
+    background-color:#fff0f5;
+    width:400px;
+    margin:auto;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.perfum{
+    background-color:#ffd6e7;
+    margin:8px;
+    padding:10px;
+    border-radius:6px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Lista Perfum</h1>
+
+<div class="container" id="lista"></div>
+
+<script>
+const perfumy = {
+  Dior: "Sauvage",
+  Chanel: "Bleu de Chanel",
+  Armani: "Acqua di Gio",
+  Versace: "Eros",
+  PacoRabanne: "1 Million",
+  YvesSaintLaurent: "Y",
+  TomFord: "Black Orchid"
+};
+
+console.log(perfumy["Dior"]);      
+console.log(perfumy.Chanel);       
+
+const lista = document.getElementById("lista");
+
+for (let marka in perfumy) {
+    const div = document.createElement("div");
+    div.className = "perfum";
+    div.innerHTML = "<b>" + marka + "</b> – " + perfumy[marka];
+    lista.appendChild(div);
+}
+</script>
+<a href="JS.html">Powrót</a>
+</body>
+</html>
