@@ -1,12 +1,94 @@
 <!DOCTYPE HTML>
-<HTML lang="pl">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <a href="JS.html">Powrót</a><br>
-    <script>
-       document.write("Witaj na stronie");
-    </script>
-  </body>
-</HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+
+<style>
+
+body{
+    background: linear-gradient(270deg,#ffe6f0,#ffd6e7,#fff0f5);
+    background-size:600% 600%;
+    animation:tlo 10s ease infinite;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    padding-top:60px;
+    overflow:hidden;
+}
+
+/* animowane tło */
+@keyframes tlo{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+a{
+    display:inline-block;
+    padding:12px 20px;
+    background:#ffd6e7;
+    color:#993366;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#ffb6d9;
+    transform:scale(1.1);
+}
+
+.text{
+    margin-top:20px;
+    font-size:22px;
+    color:#993366;
+}
+
+/* gwiazdki */
+.gwiazdka{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:spadanie 5s linear;
+}
+
+/* animacja spadania */
+@keyframes spadanie{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(110vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="JS.html">Powrót</a><br><br>
+
+<div class="text">
+<script>
+document.write("Witaj na stronie");
+</script>
+</div>
+
+<script>
+function stworzGwiazdke(){
+    const gwiazdka = document.createElement("div");
+    gwiazdka.innerHTML = "✨";
+    gwiazdka.classList.add("gwiazdka");
+
+    gwiazdka.style.left = Math.random() * window.innerWidth + "px";
+    gwiazdka.style.fontSize = (Math.random()*15 + 15) + "px";
+
+    document.body.appendChild(gwiazdka);
+
+    setTimeout(()=>{
+        gwiazdka.remove();
+    },5000);
+}
+
+setInterval(stworzGwiazdke,400);
+</script>
+
+</body>
+</html>
