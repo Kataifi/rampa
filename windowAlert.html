@@ -1,16 +1,106 @@
 <!DOCTYPE HTML>
-<HTML lang="pl">
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <a href="JS.html">Powrót</a><br>
-    <button onclick="myFunction()">Kliknij</button>
-    <script>
-      function myFunction() {
- window.alert("Działa");
-      }
-      
-    </script>
-  </body>
-</HTML>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Różowe Kokardki</title>
+
+<style>
+body{
+    background: linear-gradient(270deg,#ffe6f0,#ffd6e7,#fff0f5);
+    background-size:600% 600%;
+    animation:tlo 12s ease infinite;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+/* animowane tło */
+@keyframes tlo{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+a{
+    display:inline-block;
+    padding:12px 20px;
+    background:#ffd6e7;
+    color:#993366;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#ffb6d9;
+    transform:scale(1.1);
+}
+
+button{
+    padding:12px 25px;
+    margin-top:20px;
+    background:#ffd6e7;
+    color:#993366;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ffb6d9;
+    transform:scale(1.1);
+}
+
+/* kokardki */
+.kokardka{
+    position: fixed;
+    top: -30px;
+    font-size: 25px;
+    animation: spadanie 6s linear;
+}
+
+/* animacja spadania */
+@keyframes spadanie{
+    0%{transform: translateY(0);}
+    100%{transform: translateY(110vh);}
+}
+</style>
+
+</head>
+<body>
+
+<a href="JS.html">Powrót</a><br>
+<button onclick="myFunction()">Kliknij</button>
+
+<script>
+function myFunction() {
+    window.alert("Działa");
+}
+
+/* funkcja tworząca kokardki */
+function stworzKokardke(){
+    const kokardka = document.createElement("div");
+    kokardka.innerHTML = "🎀";
+    kokardka.classList.add("kokardka");
+    kokardka.style.left = Math.random() * window.innerWidth + "px";
+    kokardka.style.fontSize = (Math.random()*20 + 20) + "px"; // losowy rozmiar
+    kokardka.style.opacity = Math.random()*0.8 + 0.2; // losowa przezroczystość
+
+    document.body.appendChild(kokardka);
+
+    setTimeout(()=>{
+        kokardka.remove();
+    },6000);
+}
+
+// co 0.5s tworzy nową kokardkę
+setInterval(stworzKokardke, 500);
+</script>
+
+</body>
+</html>
